@@ -16,6 +16,7 @@ import com.sky.exception.PasswordErrorException;
 import com.sky.mapper.EmployeeMapper;
 import com.sky.result.PageResult;
 import com.sky.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -111,6 +113,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @param id
      */
     public void startOrStop(Integer status, Long id) {
+        log.info("更新员工状态，ID: {}, 新状态: {}", id, status);
         /*Employee employee = new Employee();
         employee.setStatus(status);
         employee.setId(id);*/
